@@ -1,0 +1,78 @@
+﻿@model Doctor
+@{
+    ViewData["Title"] = "Hola";
+}
+
+<div class="container">
+
+    <h1>FORMULARIO DE REGISTRO</h1>
+    <form asp-controller="Doctor" asp-action="registrarDoctor" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="id_doctor"></label>
+            <input asp-for="id_doctor" class="form-control" placeholder="Id doctor" name="id_doctor">
+            <span asp-validation-for="id_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="nombre_doctor"></label>
+            <input asp-for="nombre_doctor" class="form-control" placeholder="Nombre doctor" name="nombre_doctor">
+            <span asp-validation-for="nombre_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dni_Doctor"></label>
+            <input asp-for="Dni_Doctor" class="form-control" placeholder="Dni" name="Dni_Doctor">
+            <span asp-validation-for="Dni_Doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="telef_doctor"></label>
+            <input asp-for="telef_doctor" class="form-control" placeholder="Telefono" name="telef_doctor">
+            <span asp-validation-for="telef_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CorreoDoctor"></label>
+            <input asp-for="CorreoDoctor" class="form-control" placeholder="Correo" name="CorreoDoctor">
+            <span asp-validation-for="CorreoDoctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_doctor"></label>
+            <input asp-for="user_doctor" class="form-control" placeholder="Usuario" name="user_doctor">
+            <span asp-validation-for="user_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="doctor_password "></label>
+            <input asp-for="doctor_password " class="form-control" placeholder="Contraseña" name="doctor_password ">
+            <span asp-validation-for="doctor_password " class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPasword"></label>
+            <input asp-for="ConfirmPasword" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmPasword">
+            <span asp-validation-for="ConfirmPasword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="foto_doctor"></label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+            <input  type="file" name="file" class="form-control" placeholder="Foto de Perfil" />
+            <span asp-validation-for="foto_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="id_clinica"></label>
+            <input asp-for="id_clinica" class="form-control" placeholder="Id clinica" name="id_clinica">
+            <span asp-validation-for="id_clinica" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="id_horario "></label>
+            <input asp-for="id_horario " class="form-control" placeholder="Id horario " name="id_horario ">
+            <span asp-validation-for="id_horario " class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Id_especialidad "></label>
+            <input asp-for="Id_especialidad " class="form-control" placeholder="Id especialidad " name="Id_especialidad ">
+            <span asp-validation-for="Id_especialidad " class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Registrar Doctor</button>
+        </div>
+        <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+    </form>
+</div>
+

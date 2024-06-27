@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Doctor Page";
+    Layout = "~/Views/_LayoutDoctor.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/lista_reserva.png">
+                <br>
+                <!--div style="height: 150px; width: 150px; border-radius: 100%; background: blue; margin: auto;
+                margin-bottom: 10px;"><img src="Imagenes/Iconos/estetoscopio.png" alt=""></div-->
+                <span>¿Quieres conocer las citas del cita?</span>
+                <br>
+                <a asp-controller="Doctor" asp-action="ListarReserva" style="text-decoration: none; list-style: none; color: black;">Ingresa aqui</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/libro-de-medicina.png">
+                <br>
+                <span>¿Desea ver las medicinas disponibles en la farmacia?</span>
+                <br>
+                <a asp-controller="Doctor" asp-action="ListarMedicina" style="text-decoration: none; list-style: none; color: black;">Ingresa aqui</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

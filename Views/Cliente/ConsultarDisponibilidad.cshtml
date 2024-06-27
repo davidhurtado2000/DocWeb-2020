@@ -1,0 +1,97 @@
+﻿@model List<DocWeb_Prueba.Models.Doctor>
+@{
+    Layout = "~/Views/_LayoutConsulta.cshtml";
+    DateTime fecha = new DateTime();
+    fecha = DateTime.Now;
+    string fechaActual = fecha.ToString("yyyy-MM-dd");
+
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<style>
+    .box input[type = "submit"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: black;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .box button[type = "submit"] {
+        text-decoration: none;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: black;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+    .box input[type = "submit"]:hover {
+        background: #2ecc71;
+    }
+
+    .box button[type = "submit"]:hover {
+        background: #2ecc71;
+    }
+</style>
+
+<form class="box" asp-controller="Cliente" asp-action="dispinibilidadDoctor" method="POST">
+
+    <div class="form-group row" style="width: 50%; margin-left: 10px; margin: 0px auto;">
+        <label for="fecha_reserva" style="color: black; font-size: 20px;">Seleccionar fecha: </label>
+        <div class="col-10">
+            <input class="form-control" type="date" min="@fechaActual" id="fecha" name="fecha" required>
+        </div>
+        <input class="botton_dinamico" type="submit" name="consultar" value="Consultar Disponibilidad">
+    </div>
+</form>
+<br />
+@ViewData["Mensaje_de_Error"];
+<table class="table">
+    <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Hora</th>
+    </tr>
+
+    @if (Model != null)
+    {
+        TimeSpan tiempoMostrado;
+        var hora = 12;
+        var minu = 00;
+        for (int i = 0; i <= 12; i++)
+        {
+            tiempoMostrado = new TimeSpan(hora, minu, 0);
+            minu = minu + 30;
+
+            foreach (var img in Model)
+            {
+                <tr>
+                    <td scope="row">@img.nombre_doctor</td>
+                    <td>@img.telef_doctor</td>
+                    <td>@tiempoMostrado</td>
+                    <td><a asp-controller="Cliente" asp-action="registrarReserva" asp-route-hora="@tiempoMostrado" >Reservar Ahora</a></td>
+                </tr>
+            }
+        }
+    }
+
+
+
+</table>
+

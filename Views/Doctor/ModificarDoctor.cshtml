@@ -1,0 +1,51 @@
+﻿@model Doctor
+@{
+    ViewData["Title"] = "ModificarCliente";
+    Layout = "~/Views/_LayoutDoctor.cshtml";
+}
+
+<div class="container">
+
+    <h1>Modificación de Datos Personales</h1>
+    <form asp-controller="Doctor" asp-action="ModificoDoctor" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="nombre_doctor"></label>
+            <input asp-for="nombre_doctor" class="form-control" value="@ViewData["Nombres"]" name="nombre_doctor">
+            <span asp-validation-for="nombre_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dni_Doctor"></label>
+            <input asp-for="Dni_Doctor" class="form-control" value="@ViewData["Dni_Doctor"]" name="Dni_Doctor">
+            <span asp-validation-for="Dni_Doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="telef_doctor"></label>
+            <input asp-for="telef_doctor" class="form-control" value="@ViewData["telef_doctor"]" name="telef_doctor">
+            <span asp-validation-for="telef_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CorreoDoctor"></label>
+            <input asp-for="CorreoDoctor" class="form-control" value="@ViewData["CorreoDoctor"]" name="CorreoDoctor">
+            <span asp-validation-for="CorreoDoctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_doctor"></label>
+            <input asp-for="user_doctor" class="form-control" value="@ViewData["user"]" name="user_doctor">
+            <span asp-validation-for="user_doctor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="doctor_password"></label>
+            <input asp-for="doctor_password" class="form-control" placeholder="Contraseña" name="doctor_password">
+            <span asp-validation-for="doctor_password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPasword"></label>
+            <input asp-for="ConfirmPasword" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmPasword">
+            <span asp-validation-for="ConfirmPasword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Modificar Datos</button>
+        </div>
+        <span class="text-danger">@ViewData["Mensaje_error"]</span>
+    </form>
+</div>

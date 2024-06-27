@@ -1,0 +1,78 @@
+﻿@model Cliente
+@{
+    ViewData["Title"] = "Hola";
+}
+
+<div class="container">
+
+    <h1>FORMULARIO DE REGISTRO</h1>
+    <form asp-controller="Cliente" asp-action="registrarCliente" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Nombres"></label>
+            <input asp-for="Nombres" class="form-control" placeholder="Nombres" name="Nombres">
+            <span asp-validation-for="Nombres" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Apellidos"></label>
+            <input asp-for="Apellidos" class="form-control" placeholder="Apellidos" name="Apellidos">
+            <span asp-validation-for="Apellidos" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dni_Cliente"></label>
+            <input asp-for="Dni_Cliente" class="form-control" placeholder="Dni" name="Dni_Cliente">
+            <span asp-validation-for="Dni_Cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="telef_Cliente"></label>
+            <input asp-for="telef_Cliente" class="form-control" placeholder="Telefono" name="telef_Cliente">
+            <span asp-validation-for="telef_Cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CorreoCliente"></label>
+            <input asp-for="CorreoCliente" class="form-control" placeholder="Correo" name="CorreoCliente">
+            <span asp-validation-for="CorreoCliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_cliente"></label>
+            <input asp-for="user_cliente" class="form-control" placeholder="Usuario" name="user_cliente">
+            <span asp-validation-for="user_cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_password"></label>
+            <input asp-for="user_password" class="form-control" placeholder="Contraseña" name="user_password">
+            <span asp-validation-for="user_password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPasword"></label>
+            <input asp-for="ConfirmPasword" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmPasword">
+            <span asp-validation-for="ConfirmPasword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="foto_cliente"></label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+            <input  type="file" name="file" class="form-control" placeholder="Foto de Perfil" />
+            <span asp-validation-for="foto_cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="fecha_nacimiento"></label>
+            <input asp-for="fecha_nacimiento" class="form-control" placeholder="dd/mm/yyyy" name="fecha_nacimiento">
+            <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="seguro"></label>
+            <input asp-for="seguro" class="form-control" placeholder="Seguro" name="seguro">
+            <span asp-validation-for="seguro" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="edad"></label>
+            <input asp-for="edad" class="form-control" placeholder="Edad" name="edad">
+            <span asp-validation-for="edad" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Registrar Cliente</button>
+        </div>
+        <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+    </form>
+</div>
+

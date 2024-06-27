@@ -1,0 +1,68 @@
+﻿@model Administrador
+@{
+    ViewData["Title"] = "Hola";
+}
+
+<div class="container">
+
+    <h1>FORMULARIO DE REGISTRO</h1>
+    <form asp-controller="Administrador" asp-action="registrarAdministrador" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Id_Admin"></label>
+            <input asp-for="Id_Admin" class="form-control" placeholder="Id Admin" name="Id_Admin">
+            <span asp-validation-for="Id_Admin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Nombres"></label>
+            <input asp-for="Nombres" class="form-control" placeholder="Nombres" name="Nombres">
+            <span asp-validation-for="Nombres" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dni_Admin"></label>
+            <input asp-for="Dni_Admin" class="form-control" placeholder="Dni" name="Dni_Admin">
+            <span asp-validation-for="Dni_Admin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="telef_Admin"></label>
+            <input asp-for="telef_Admin" class="form-control" placeholder="Telefono" name="telef_Admin">
+            <span asp-validation-for="telef_Admin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CorreoAdmin"></label>
+            <input asp-for="CorreoAdmin" class="form-control" placeholder="Correo" name="CorreoAdmin">
+            <span asp-validation-for="CorreoAdmin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_admin"></label>
+            <input asp-for="user_admin" class="form-control" placeholder="Usuario" name="user_admin">
+            <span asp-validation-for="user_admin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="admin_password"></label>
+            <input asp-for="admin_password" class="form-control" placeholder="Contraseña" name="admin_password">
+            <span asp-validation-for="admin_password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPasword"></label>
+            <input asp-for="ConfirmPasword" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmPasword">
+            <span asp-validation-for="ConfirmPasword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="foto_admin"></label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+            <input  type="file" name="file" class="form-control" placeholder="Foto de Perfil" />
+            <span asp-validation-for="foto_admin" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="id_clinica"></label>
+            <input asp-for="id_clinica" class="form-control" placeholder="Id Clinica" name="id_clinica">
+            <span asp-validation-for="id_clinica" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Registrar Administrador</button>
+        </div>
+        <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+    </form>
+</div>
+

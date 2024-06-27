@@ -1,0 +1,10 @@
+﻿@model DocWeb_Prueba.Models.Servicio
+
+<option value="">Seleccionar Servicio</option>
+
+@if (ViewBag.ServicioSelectList != null)
+{
+    foreach(var item in ViewBag.ServicioSelectList){
+        <option value="@item.Value">@item.Text</option>
+    }
+}

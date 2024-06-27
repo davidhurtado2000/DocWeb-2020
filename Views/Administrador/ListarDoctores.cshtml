@@ -1,0 +1,57 @@
+﻿@model List<DocWeb_Prueba.Models.Doctor>
+@{
+    ViewBag.Title = "Administrador Page";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+<h2>Doctores</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <form asp-controller="Administrador" asp-action="datosDoctoresEspecificos" method="post" enctype="multipart/form-data">
+                <div class="input-group md-form form-sm form-2 pl-0" margin="50px">
+                    <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="nombre" placeholder="NOMBRE..." aria-label="Search" />
+                    <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"></span>
+                    <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Buscar</button>
+                    <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+                </div>
+
+            </form>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Id Clinica</th>
+                    <th>Id Horario</th>
+                    <th>Id Especialidad</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                @foreach (var img in Model)
+                {
+                    <tr>
+                        <td>@img.nombre_doctor</td>
+                        <td>@img.Dni_Doctor</td>
+                        <td>@img.telef_doctor</td>
+                        <td>@img.CorreoDoctor</td>
+                        <td>@img.id_clinica</td>
+                        <td>@img.id_horario</td>
+                        <td>@img.Id_especialidad</td>
+                    </tr>
+                }
+            </tbody>
+            <!--Table body-->
+        </table>
+        </div>
+    </div>

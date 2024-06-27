@@ -1,0 +1,72 @@
+﻿@model Cliente
+@{
+    ViewData["Title"] = "ModificarCliente";
+    Layout = "~/Views/_LayoutClientes.cshtml";
+}
+
+<div class="container">
+
+    <h1>Modificación de Datos Personales</h1>
+    <form asp-controller="Cliente" asp-action="ModificoCliente" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Nombres"></label>
+            <input asp-for="Nombres" class="form-control" value="@ViewData["Nombres"]" name="Nombres">
+            <span asp-validation-for="Nombres" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Apellidos"></label>
+            <input asp-for="Apellidos" class="form-control" value="@ViewData["Apellidos"]" name="Apellidos">
+            <span asp-validation-for="Apellidos" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Dni_Cliente"></label>
+            <input asp-for="Dni_Cliente" class="form-control" value="@ViewData["Dni_Cliente"]" name="Dni_Cliente">
+            <span asp-validation-for="Dni_Cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="telef_Cliente"></label>
+            <input asp-for="telef_Cliente" class="form-control" value="@ViewData["telef_Cliente"]" name="telef_Cliente">
+            <span asp-validation-for="telef_Cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CorreoCliente"></label>
+            <input asp-for="CorreoCliente" class="form-control" value="@ViewData["CorreoCliente"]" name="CorreoCliente">
+            <span asp-validation-for="CorreoCliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_cliente"></label>
+            <input asp-for="user_cliente" class="form-control" value="@ViewData["user"]" name="user_cliente">
+            <span asp-validation-for="user_cliente" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="user_password"></label>
+            <input asp-for="user_password" class="form-control" placeholder="Contraseña" name="user_password">
+            <span asp-validation-for="user_password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPasword"></label>
+            <input asp-for="ConfirmPasword" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmPasword">
+            <span asp-validation-for="ConfirmPasword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="fecha_nacimiento"></label>
+            <input asp-for="fecha_nacimiento" class="form-control" value="@ViewData["fecha_nacimiento"]" name="fecha_nacimiento">
+            <span asp-validation-for="fecha_nacimiento" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="seguro"></label>
+            <input asp-for="seguro" class="form-control" value="@ViewData["seguro"]" name="seguro">
+            <span asp-validation-for="seguro" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="edad"></label>
+            <input asp-for="edad" class="form-control" value="@ViewData["edad"]" name="edad">
+            <span asp-validation-for="edad" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Modificar Datos</button>
+        </div>
+        <span class="text-danger">@ViewData["Mensaje_error"]</span>
+    </form>
+</div>

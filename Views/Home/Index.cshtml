@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-12" id="contenidoche">
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h1 class="bienvenido" style="color: white;">
+                        Bievenido a Doc Web <br>
+                        Si eres Cliente<br> Ingrese a su cuenta desde aqui!
+                    </h1>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <form class="box" action="~/Cliente/Verificacion1" method="post">
+                            <h1>Login</h1>
+                            <p class="text-muted"> Ingrese su usuario y contraseña!</p>
+                            <input type="text" name="usuario" placeholder="Username">
+                            <input type="password" name="contraseña" placeholder="Password">
+                            <a class="forgot text-muted"  asp-controller="Cliente" asp-action="Registro">No tienes cuenta? Registrate aqui</a>
+                            <input type="submit" name="" value="Login">
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="waveWrapper waveAnimation" id="fondo_ola">
+                <div class="waveWrapperInner bgTop">
+                    <div class="wave waveTop"
+                         style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')">
+                    </div>
+                </div>
+                <div class="waveWrapperInner bgMiddle">
+                    <div class="wave waveMiddle"
+                         style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')">
+                    </div>
+                </div>
+                <div class="waveWrapperInner bgBottom">
+                    <div class="wave waveBottom"
+                         style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/estetoscopio.png">
+                <br>
+                <!--div style="height: 150px; width: 150px; border-radius: 100%; background: blue; margin: auto;
+                margin-bottom: 10px;"><img src="Imagenes/Iconos/estetoscopio.png" alt=""></div-->
+                <span>Si eres Doctor(a) de la Clínica</span>
+                <br>
+                <a asp-controller="Doctor" asp-action="Login">Ingresa aqui</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/admin_opciones.png">
+                <br>
+                <span>Si eres Administrador(a) de la Clínica</span>
+                <br>
+                <a asp-controller="Administrador" asp-action="Login">Ingresa aqui</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="opciones_portales">
+                <img src="~/img/Iconos/ambulancia.png">
+                <br>
+                <span>Si eres de Emergencia de la Clínica</span>
+                <br>
+                <a asp-controller="Emergencia" asp-action="LoginEmergencia">Ingresa aqui</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-lg-8" id="fondo_doctor">
+            <div class="ad-info">
+                <b>Conozca mas sobre nosotros</b>
+                <br>
+                Le brindamos nuestra historia, misión, visión y muchos mas
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-sm animated-button victoria-four" href="#">Aprender más</a>
+        </div>
+
+    </div>
+
+</div>

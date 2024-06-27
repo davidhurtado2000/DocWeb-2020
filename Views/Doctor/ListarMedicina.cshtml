@@ -1,0 +1,57 @@
+﻿@model List<DocWeb_Prueba.Models.Medicina>
+@{
+    ViewBag.Title = "Doctor Page";
+    Layout = "~/Views/_LayoutDoctor.cshtml";
+}
+<div class="card mb-4">
+    <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <form asp-controller="Doctor" asp-action="datosMedicinaEspecificos" method="post" enctype="multipart/form-data">
+                <div class="input-group md-form form-sm form-2 pl-0" margin="50px">
+                    <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="nombreMedicina" placeholder="Nombre de Medicina..." aria-label="Search" />
+                    <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"></span>
+                    <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Buscar</button>
+                    <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+                </div>
+
+            </form>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Codigo de Medicina</th>
+                    <th>Nombre de Medicina</th>
+                    <th>Receta Medica</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Tipo</th>
+                    <th>Clinica ID</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                @foreach (var img in Model)
+                {
+                    <tr>
+                        <td>@img.id_medicina</td>
+                        <td>@img.nombre_medicina</td>
+                        <td>@img.receta_medica</td>
+                        <td>@img.cantidad</td>
+                        <td>@img.precio</td>
+                        <td>@img.tipoNombre</td>
+                        <td>@img.id_clinica</td>
+                    </tr>
+                }
+            </tbody>
+            <!--Table body-->
+        </table>
+    </div>
+</div>
+@ViewData["Error"]

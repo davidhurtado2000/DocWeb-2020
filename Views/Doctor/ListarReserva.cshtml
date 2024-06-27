@@ -1,0 +1,29 @@
+﻿@model List<DocWeb_Prueba.Models.Reserva>
+@{
+    ViewBag.Title = "Doctor Page";
+    Layout = "~/Views/_LayoutDoctor.cshtml";
+}
+<h2>Reservas</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Codigo de reserva</th>
+        <th>Cliente</th>
+        <th>Fecha de Reserva</th>
+        <th>Hora</th>
+        <th>Servicio</th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var img in Model)
+        {
+        <tr>
+            <td>@img.id_reserva</td>
+            <td>@img.nombreCliente</td>
+            <td>@img.fecha_reserva</td>
+            <td>@img.hora</td>
+            <td>@img.nombreServicio</td>
+        </tr>
+        }
+    }
+</table>
+@ViewData["Error"]

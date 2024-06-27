@@ -1,0 +1,59 @@
+﻿@model List<DocWeb_Prueba.Models.Cliente>
+@{
+    ViewBag.Title = "Emergencia Page";
+    Layout = "~/Views/_LayoutEmergencia.cshtml";
+}
+
+<h2>Emergencias</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <form asp-controller="Emergencia" asp-action="datosClientesEspecificos" method="post" enctype="multipart/form-data">
+                <div class="input-group md-form form-sm form-2 pl-0" margin="50px">
+                    <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="dni" placeholder="DNI..." aria-label="Search" />
+                    <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"></span>
+                    <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Buscar</button>
+                    <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+                </div>
+
+            </form>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Seguro</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                @foreach (var img in Model)
+                {
+                    <tr>
+                        <td>@img.Nombres</td>
+                        <td>@img.Apellidos</td>
+                        <td>@img.Dni_Cliente</td>
+                        <td>@img.telef_Cliente</td>
+                        <td>@img.CorreoCliente</td>
+                        <td>@img.fecha_nacimiento</td>
+                        <td>@img.seguro</td>
+                        <td>@img.edad</td>
+                    </tr>
+                }
+            </tbody>
+            <!--Table body-->
+        </table>
+

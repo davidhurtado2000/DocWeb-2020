@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/estilo.css" />
+    <title>Emergencias</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
+          media="all">
+    <link href="css/estilo.css" type="text/css" rel="stylesheet" media="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        $(function () {
+            setTimeout(function () {
+                $(".container-fluid").animate({
+                    opacity: 1
+                }, 1500);
+            }, 1000);
+
+        });
+
+        $(function () {
+            setTimeout(function () {
+                $(".navbar").animate({
+                    opacity: 1
+                }, 1000);
+            }, 1000);
+
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container-fluid" style="width: 90%;">
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container-fluid" style="height: 170px;">
+                    <a asp-area="" asp-controller="Emergencia" asp-action="EmergenciaPage"><img src="~/img/Clinica RP Logo.png"></a>
+                    <ul class="information-list">
+                        <li class="options">
+                            <img src="~/img/Iconos/telefono.png"> (511) 224·2224 / (511) 224·2226
+                        </li>
+                        <li class="options">
+                            <a class="ubicacion"
+                               href="https://www.google.com/maps/place/Cl%C3%ADnica+Ricardo+Palma/-12.0907032,-77.0204753,17z/data=!3m1!4b1!4m5!3m4!1s0x9105c87b8819d459:0x6da256a012fc08ab!8m2!3d-12.0907032!4d-77.0182866"
+                               target="_blank">
+                                <img src="~/img/Iconos/mapas-de-google.png"> Av. Javier Prado Este 1066 Urb. Corpac -
+                                15036 Peru
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg bg-color navbar-light sticky-top" style="background: white;">
+            <a class="navbar-brand" asp-area="" asp-controller="Emergencia" asp-action="EmergenciaPage">
+                <img src="~/img/Fotos/@ViewData["foto"]" height="50" width="50">
+                @ViewData["NombreCompleto"] @ViewBag.Name @ViewBag.Age
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="link" style="text-decoration: none;" asp-area="" asp-controller="Emergencia" asp-action="DatosCliente">Listar clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="link" style="text-decoration: none;" asp-controller="Emergencia" asp-action="LogOut">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        @RenderBody()
+
+    </div>
+    <footer class="page-footer font-small mdb-color pt-4" style="background-color: #377d86; margin-top: 20px; color: white;">
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+
+            <!-- Footer links -->
+            <div class="row text-center text-md-left mt-3 pb-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Clinica Ricardo Palma</h6>
+                    <p style="text-align: justify;">
+                        Una de las mejores clínicas que tiene el Perú, demostrando el cumplimiento continuo
+                        que refleja su compromiso con los más altos estándares en calidad de atención
+                        y seguridad del paciente.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Servicios</h6>
+                    <p>
+                        <a href="https://www.crp.com.pe/serv-complementario/servicio-de-traslado-del-paciente/" target="_blank">
+                            Servicio de traslado del paciente
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.crp.com.pe/serv-complementario/servicios-de-apoyo-emocional/" target="_blank">
+                            Servicios de apoyo emocional
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.crp.com.pe/serv-complementario/valet-parking-y-pase-de-cortesia/" target="_blank">
+                            Valet parking y pase de cortesia
+                        </a>
+                    </p>
+                    <p>
+                        <a href="https://www.crp.com.pe/serv-complementario/centro-de-medicina-estetica-clinica-ricardo-palma/" target="_blank">
+                            Centro de Medicina Estética
+                        </a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <hr class="w-100 clearfix d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Enlaces útiles</h6>
+                    <p>
+                        <a href="https://www.crp.com.pe/coronavirus-covid-19/" target="_blank">COVID-19</a>
+                    </p>
+                    <p>
+                        <a href="https://www.crp.com.pe/calidad-y-seguridad-del-paciente/" target="_blank">Calidad</a>
+                    </p>
+                    <p>
+                        <a href="https://www.crp.com.pe/plansalud/" target="_blank">Plan Salud</a>
+                    </p>
+                </div>
+
+                <!-- Grid column -->
+                <hr class="w-100 clearfix d-md-none">
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contactos</h6>
+                    <p>
+                        <i class="fa fa-map-marker"></i> Av. Javier Prado Este 1066 Urb. Corpac -
+                        15036 Peru
+                    </p>
+                    <p>
+                        <i class="fa fa-envelope"></i> webmaster@crp.com.pe
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> (511) 224·2224
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i> (511) 224·2226
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Footer links -->
+
+            <hr>
+
+            <!-- Grid row -->
+            <div class="row d-flex align-items-center">
+
+                <!-- Grid column -->
+                <div class="col-md-7 col-lg-8">
+
+                    <!--Copyright-->
+                    <p class="text-center text-md-left">
+                        © 2020 Copyright:
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <strong>DocWeb.com</strong>
+                        </a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                    <!-- Social buttons -->
+                    <div class="text-center text-md-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/ClinicaRicardoPalma" class="redes_sociales" target="_blank">
+                                    <i class="fa fa-facebook-f" style="font-size: 25px;"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://twitter.com/CRicardoPalma" class="redes_sociales" target="_blank">
+                                    <i class="fa fa-twitter" style="font-size: 25px;"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.youtube.com/user/ClinicaRicardoPalma" class="redes_sociales" target="_blank">
+                                    <i class="fa fa-youtube-play" style="font-size: 25px;"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/clinicaricardopalma/" class="redes_sociales" target="_blank">
+                                    <i class="fa fa-instagram" style="font-size: 25px;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+    </footer>
+    <!-- Footer -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

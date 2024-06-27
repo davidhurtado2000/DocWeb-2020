@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutLogInEmergencia.cshtml";
+}
+
+<form class="box" action="VerificacionEmergencia" method="post">
+    <h1>Login</h1>
+    <span class="text-danger" style="color: red;">@ViewData["Error"]</span>
+    <input type="text" name="usuario" placeholder="Username">
+    <input type="password" name="contraseña" placeholder="Password">
+    <button type="submit">Login</button>
+    <a class="forgot text-muted" asp-controller="Emergencia" asp-action="RegistroEmer">Eres Emergencia de la Clínica? Registrate aqui</a>
+    <br />
+    <a class="forgot text-muted" asp-controller="Home" asp-action="Index">Regresar</a>
+</form>
+
+
+<div class="lines">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+</div>

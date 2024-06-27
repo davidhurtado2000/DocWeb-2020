@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Administrador Page";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/paciente.png" width="128px" height="128px">
+                <br>
+                <!--div style="height: 150px; width: 150px; border-radius: 100%; background: blue; margin: auto;
+            margin-bottom: 10px;"><img src="Imagenes/Iconos/estetoscopio.png" alt=""></div-->
+                <span>Clientes</span>
+                <br>
+                <a asp-controller="Administrador" asp-action="ListarClientes" style="text-decoration: none; list-style: none; color: black;">Ver Lista</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/doctor1.png" width="100px" height="128px">
+                <br>
+                <span>Doctores</span>
+                <br>
+                <a asp-controller="Administrador" asp-action="ListarDoctores" style="text-decoration: none; list-style: none; color: black;">Ver Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

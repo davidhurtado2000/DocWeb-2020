@@ -1,0 +1,21 @@
+﻿@model List<DocWeb_Prueba.Models.Cliente>
+@{
+
+}
+<h2>Clientes</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Nombres</th>
+        <th>Apellido</th>
+        <th>Fecha de Nacimiento</th>
+    </tr>
+    @foreach (var img in Model)
+    {
+        <tr>
+            <td>@img.Nombres</td>
+            <td>@img.Apellidos</td>
+            <td>@img.fecha_nacimiento</td>
+        </tr>
+    }
+
+</table>

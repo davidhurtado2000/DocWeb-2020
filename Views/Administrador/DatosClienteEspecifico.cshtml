@@ -1,0 +1,82 @@
+﻿@model List<DocWeb_Prueba.Models.Cliente>
+@{
+    ViewBag.Title = "Administrador Page";
+    Layout = "~/Views/_LayoutAdmin.cshtml";
+}
+<nav class="navbar navbar-expand-lg bg-color navbar-light sticky-top" style="background: white;">
+    <a class="navbar-brand" asp-area="" asp-controller="Administrador" asp-action="AdministradorPage">
+        <img src="~/img/Fotos/@ViewData["foto"]" height="50" width="50">
+        @ViewData["NombreCompleto"] @ViewBag.Name @ViewBag.Age
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="link" style="text-decoration: none;" asp-area="" asp-controller="Administrador" asp-action="Reserva">Reservar cita</a>
+            </li>
+            <li class="nav-item">
+                <a class="link" style="text-decoration: none;" asp-controller="Administrador" asp-action="Listado">Ver Datos Personales</a>
+            </li>
+            <li class="nav-item">
+                <a class="link" style="text-decoration: none;" asp-controller="Administrador" asp-action="Reserva">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h2>Administrador</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <form asp-controller="Administrador" asp-action="datosClienteEspecifico" method="post" enctype="multipart/form-data">
+                <div class="input-group md-form form-sm form-2 pl-0" margin="50px">
+                    <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="correo" placeholder="Correo..." aria-label="Search" />
+                    <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"></span>
+                    <button type="submit" class="btn btn-primary" value="btn" name="grabar" data-toggle="modal" data-target="#exampleModal">Buscar</button>
+                    <span class="text-danger">@ViewData["Error_Mensaje"]</span>
+                </div>
+
+            </form>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Seguro</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+                @foreach (var img in Model)
+                {
+                    <tr>
+                        <td>@img.Nombres</td>
+                        <td>@img.Apellidos</td>
+                        <td>@img.telef_Cliente</td>
+                        <td>@img.CorreoCliente</td>
+                        <td>@img.fecha_nacimiento</td>
+                        <td>@img.seguro</td>
+                        <td>@img.edad</td>
+                    </tr>
+                }
+            </tbody>
+            <!--Table body-->
+        </table>
+    </div>
+</div>
+

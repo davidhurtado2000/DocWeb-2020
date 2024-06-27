@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Cliente Page";
+    Layout = "~/Views/_LayoutClientes.cshtml";
+}
+<style>
+    a {
+        text-decoration: none;
+        list-style: none;
+        color: black;
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/registro.png">
+                <br>
+                <!--div style="height: 150px; width: 150px; border-radius: 100%; background: blue; margin: auto;
+                margin-bottom: 10px;"><img src="Imagenes/Iconos/estetoscopio.png" alt=""></div-->
+                <span>Ya no esperes mas en largas cola, Registrate aqui su Reserva!</span>
+                <br>
+                <a asp-controller="Cliente" asp-action="PrimerRequisitoReserva" style="text-decoration: none; list-style: none; color: black;">Registrar Ahora</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="opciones_portales">
+                <img src="/img/Iconos/datos-personales.png">
+                <br>
+                <span>¿Desea ver y modificar tus datos personales?</span>
+                <br>
+                <a asp-controller="Cliente" asp-action="DatosPersonales" style="text-decoration: none; list-style: none; color: black;" >Ingresa aqui</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

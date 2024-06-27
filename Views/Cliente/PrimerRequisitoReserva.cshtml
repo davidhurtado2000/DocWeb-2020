@@ -1,0 +1,114 @@
+﻿@model DocWeb_Prueba.Models.Cascada
+@{
+    Layout = "~/Views/_LayoutClientes.cshtml";
+}
+<style>
+    
+    .box button[type = "submit"] {
+        text-decoration: none;
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: black;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+    }
+
+
+    .box button[type = "submit"]:hover {
+        background: #2ecc71;
+    }
+</style>
+
+<div class="container">
+    <h2 style="color: black;">¡Bienvenido a nuestro Sistema de Reservas!</h2>
+    <ul style="color: black; font-size: 20px;">
+        A tener en cuenta:
+        <li>El cliente tendra un tiempo de 10min de tolerencia si en caso esta a destiempo</li>
+        <li>Al llegar a la Clínica identificarse con su nombre y apellido con la adminsitradora de caja</li>
+        <li>Si en caso tiene un incoviniente en llegar a tiempo, comunicarse con el administrador</li>
+        <li>Si en la disponibilidad sale como vacio significa que el doctor no trabaja la fecha consultada</li>
+        <li>Al registrar la reserva el cliente debe estar comprometido en la puntualidad para un mejor servicio</li>
+        <li>Ahora conociendo las consideraciones, estas listo para realizar una reserva con nosotros!</li>
+    </ul>
+    <form class="box" asp-controller="Cliente" asp-action="pasarDatosPrincipales" method="POST" style=" margin-left: 10px; margin: 0px auto; margin-top: 50px;">
+        <h3 style="color: black; font-weight: 300px;">Elige su categoria, servicio y doctor de preferencia</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <p style="color: black; font-size: 20px;">
+                    Categoria
+                    @if (ViewBag.CategoriaSelectList != null)
+                    {
+                        @Html.DropDownListFor(m => m.id_categoria, ViewBag.CategoriaSelectList as SelectList, "Seleccionar Categoria", new { @class = "form-control" })
+
+                    }
+
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p style="color: black; font-size: 20px;">
+                    Servicio
+                    @Html.DropDownListFor(m => m.id_servicio, new SelectList(""), "Seleccionar Servicio", new { @class = "form-control" })
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p style="color: black; font-size: 20px;">
+                    Doctor
+                    @Html.DropDownListFor(m => m.id_doctor, new SelectList(""), "Seleccionar Doctor", new { @class = "form-control" })
+                </p>
+            </div>
+            <div class="col-md-4">
+                <p><br><button id="siguiente" type="submit"  style="margin-left:950px;width: 50%;">Siguiente</button></p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#id_categoria").change(function () {
+                var categoriaId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "post",
+                    url: "/Cliente/listarServicio?id_categoria="+categoriaId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $("#id_servicio").empty();
+                        $("#id_servicio").append(response);
+                        $("#id_doctor").find("option").remove().end().append('<option value="whatever"></option>').val('whatever');
+                    }
+                    
+                })
+            })
+
+        })
+
+        $(document).ready(function () {
+            $("#id_servicio").change(function () {
+                var servicioId = $(this).val();
+                debugger
+                $.ajax({
+                    type: "post",
+                    url: "/Cliente/listarDoctor?id_servicio="+servicioId,
+                    contentType: "html",
+                    success: function (response) {
+                        debugger
+                        $("#id_doctor").empty();
+                        $("#id_doctor").append(response);
+                    }
+                })
+            })
+
+        })
+</script>

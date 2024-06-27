@@ -1,0 +1,54 @@
+﻿@model List<DocWeb_Prueba.Models.Doctor>
+@{
+    ViewBag.Title = "Administrador Page";
+    Layout = "~/Views/_LayoutDoctor.cshtml";
+}
+
+<div class="card mb-4">
+    <div class="card-body">
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-12">
+                <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Datos Personales</h2>
+                <div class="input-group md-form form-sm form-2 pl-0">
+
+                </div>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+        <!--Table-->
+        <table class="table table-striped">
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>DNI</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Usuario</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+
+                <tr>
+                    <td>@ViewData["Nombres"]</td>
+                    <td>@ViewData["Dni_Doctor"]</td>
+                    <td>@ViewData["telef_doctor"]</td>
+                    <td>@ViewData["CorreoDoctor"]</td>
+                    <td>@ViewData["user"]</td>
+                    <td>
+                        <a asp-controller="Doctor" asp-action="ModificarDoctor" asp-route-id="">Editar Datos</a> |
+                    </td>
+
+                </tr>
+            </tbody>
+            <!--Table body-->
+        </table>
+    </div>
+</div>
+
